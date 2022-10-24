@@ -5,14 +5,20 @@ import Block from './Block';
 
 const Feed = () => {
     /* TODO: Declare a new state variable to keep track of the blocks on your Blockstagram feed! */
+    const [blocks, setColors] = useState([])
+
     // Refer to Hint 2 for more help!
-
     /* Use the map() function to render multiple Blocks! */
-    const posts = null; // TODO: edit this variable
+    const posts = blocks.map((block) => <Block color = {block} ></Block>); // TODO: edit this variable
 
-    return (
+    function updateColors(color) {
+        setColors([color, ...blocks
+        ])
+    };
+
+    return (    
         <div>
-            <Menu></Menu>
+            <Menu update={updateColors}></Menu>
 
             {/* Below is where all of your Blocks should render! */}
             {posts}
